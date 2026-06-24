@@ -44,7 +44,7 @@ Python, rasterio, NumPy, Py6S / 6S, Matplotlib.
 
 # limitations
 
-Predefined atmosphere, not scene-measured AOD/water vapour.
-No geometric/terrain correction beyond what's already in the L1TP product.
-Surface reflectance not yet validated against the official L2 product.
-The fallback lookup table is an approximation for standard conditions and is labelled as such in the code.
+- Predefined atmosphere, not scene-measured AOD/water vapour.
+- No geometric/terrain correction beyond what's already in the L1TP product.
+- Surface reflectance not yet validated against the official L2 product.
+- The fallback lookup table is an approximation for standard conditions and is labelled as such in the code.
