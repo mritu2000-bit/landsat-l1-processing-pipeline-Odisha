@@ -41,7 +41,7 @@ For this scene the NDVI mean is about 0.29, consistent with a mix of vegetated a
 
 Python, rasterio, NumPy, Py6S / 6S, Matplotlib.
 
-Notes / limitations
+# limitations
 
 Predefined atmosphere, not scene-measured AOD/water vapour.
 No geometric/terrain correction beyond what's already in the L1TP product.
