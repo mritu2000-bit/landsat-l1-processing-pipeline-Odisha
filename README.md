@@ -12,7 +12,7 @@ The flow is DN → TOA reflectance → surface reflectance → NDVI.
 -Correction. DN is rescaled to TOA reflectance and divided by sin(sun elevation), then inverted to surface reflectance using the 6S parameters.
 -NDVI from corrected NIR and red, plus a three-panel figure (raw DN, surface reflectance, NDVI).
 
-# Atmospheric correction — the honest version
+# Atmospheric correction 
 
 The 6S run uses a mid-latitude summer atmosphere, a continental aerosol model, and AOT 0.2 at 550 nm. Those are reasonable defaults but they're a predefined profile, not measurements for this date and place. A more rigorous correction would pull the real aerosol optical depth and water vapour (AERONET or a MODIS/VIIRS aerosol product) and feed those into 6S. I've kept the assumptions explicit in the notebook rather than hiding them.
 The output isn't validated against a reference product. The notebook includes a magnitude spot-check, but the proper test is a pixel-wise comparison against the USGS Collection 2 Level-2 surface reflectance for the same scene. That's the next thing I'd add.
@@ -30,6 +30,7 @@ After the restart:
 import sys
 !{sys.executable} -m pip install Py6S          # install into the kernel's Python
 ```
+Data: Landsat 8 scene LC08_L1TP_141045_20260412, downloadable from USGS EarthExplorer (earthexplorer.usgs.gov) or the USGS M2M API. Place the band GeoTIFFs and the *_MTL.xml in /content/Data before running.
 Then upload the `Data` folder (the nine band TIFs and the MTL XML) into `/content/Data` and run the pipeline cells top to bottom. Without 6S installed it still runs, just on the fallback atmosphere.
 One gotcha worth noting: after condacolab swaps the environment, a plain `pip install` can land in a different Python than the kernel, so the import fails even though pip reported success. Pointing pip at `sys.executable` fixes it.
 
